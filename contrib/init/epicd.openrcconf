@@ -1,0 +1,26 @@
+# /etc/conf.d/epicd: config file for /etc/init.d/epicd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/epic/epic.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/epicd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/epicd.pid"
+
+# Where to write epicd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/epicd"
+
+# User and group to own epicd process
+#BITCOIND_USER="epic"
+#BITCOIND_GROUP="epic"
+
+# Path to epicd executable
+#BITCOIND_BIN="/usr/bin/epicd"
+
+# Nice value to run epicd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
