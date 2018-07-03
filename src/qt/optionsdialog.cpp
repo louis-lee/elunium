@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/epic-config.h"
+#include "config/elunium-config.h"
 #endif
 
 #include "optionsdialog.h"

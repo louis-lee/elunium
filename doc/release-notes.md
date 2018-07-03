@@ -1,15 +1,15 @@
 (note: this is a temporary file, to be added-to by anybody, and moved to release-notes at release time)
 
-Epic Core version *version* is now available from:
+Elunium Core version *version* is now available from:
 
-  <https://github.com/epic/epic/releases>
+  <https://github.com/elunium/elunium/releases>
 
 This is a new major version release, including various bug fixes and
 performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/epic/epic/issues>
+  <https://github.com/elunium/elunium/issues>
 
 Mandatory Update
 ==============
@@ -18,12 +18,12 @@ Mandatory Update
 How to Upgrade
 ==============
 
-If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/Epic-Qt (on Mac) or epicd/epic-qt (on Linux).
+If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/Elunium-Qt (on Mac) or eluniumd/elunium-qt (on Linux).
 
 Compatibility
 ==============
 
-Epic Core is extensively tested on multiple operating systems using
+Elunium Core is extensively tested on multiple operating systems using
 the Linux kernel, macOS 10.8+, and Windows Vista and later.
 
 Microsoft ended support for Windows XP on [April 8th, 2014](https://www.microsoft.com/en-us/WindowsForBusiness/end-of-xp-support),
@@ -31,7 +31,7 @@ No attempt is made to prevent installing or running the software on Windows XP, 
 can still do so at your own risk but be aware that there are known instabilities and issues.
 Please do not report issues about Windows XP to the issue tracker.
 
-Epic Core should also work on most other Unix-like systems but is not
+Elunium Core should also work on most other Unix-like systems but is not
 frequently tested on them.
 
 Notable Changes
@@ -50,7 +50,7 @@ overridden with the option `-rpccookiefile`.
 This is similar to Tor's CookieAuthentication: see
 https://www.torproject.org/docs/tor-manual.html.en
 
-This allows running epicd without having to do any manual configuration.
+This allows running eluniumd without having to do any manual configuration.
 
 
 *version* Change log

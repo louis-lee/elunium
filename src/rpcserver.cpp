@@ -242,10 +242,10 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop Epic server.");
+            "\nStop Elunium server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "Epic server stopping";
+    return "Elunium server stopping";
 }
 
 
@@ -327,33 +327,33 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* Epic features */
-        {"epic", "masternode", &masternode, true, true, false},
-        {"epic", "listmasternodes", &listmasternodes, true, true, false},
-        {"epic", "getmasternodecount", &getmasternodecount, true, true, false},
-        {"epic", "masternodeconnect", &masternodeconnect, true, true, false},
-        {"epic", "masternodecurrent", &masternodecurrent, true, true, false},
-        {"epic", "masternodedebug", &masternodedebug, true, true, false},
-        {"epic", "startmasternode", &startmasternode, true, true, false},
-        {"epic", "createmasternodekey", &createmasternodekey, true, true, false},
-        {"epic", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
-        {"epic", "listmasternodeconf", &listmasternodeconf, true, true, false},
-        {"epic", "getmasternodestatus", &getmasternodestatus, true, true, false},
-        {"epic", "getmasternodewinners", &getmasternodewinners, true, true, false},
-        {"epic", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"epic", "mnbudget", &mnbudget, true, true, false},
-        {"epic", "preparebudget", &preparebudget, true, true, false},
-        {"epic", "submitbudget", &submitbudget, true, true, false},
-        {"epic", "mnbudgetvote", &mnbudgetvote, true, true, false},
-        {"epic", "getbudgetvotes", &getbudgetvotes, true, true, false},
-        {"epic", "getnextsuperblock", &getnextsuperblock, true, true, false},
-        {"epic", "getbudgetprojection", &getbudgetprojection, true, true, false},
-        {"epic", "getbudgetinfo", &getbudgetinfo, true, true, false},
-        {"epic", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
-        {"epic", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"epic", "checkbudgets", &checkbudgets, true, true, false},
-        {"epic", "mnsync", &mnsync, true, true, false},
-        {"epic", "spork", &spork, true, true, false},
+        /* Elunium features */
+        {"elunium", "masternode", &masternode, true, true, false},
+        {"elunium", "listmasternodes", &listmasternodes, true, true, false},
+        {"elunium", "getmasternodecount", &getmasternodecount, true, true, false},
+        {"elunium", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"elunium", "masternodecurrent", &masternodecurrent, true, true, false},
+        {"elunium", "masternodedebug", &masternodedebug, true, true, false},
+        {"elunium", "startmasternode", &startmasternode, true, true, false},
+        {"elunium", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"elunium", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"elunium", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"elunium", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"elunium", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"elunium", "getmasternodescores", &getmasternodescores, true, true, false},
+        {"elunium", "mnbudget", &mnbudget, true, true, false},
+        {"elunium", "preparebudget", &preparebudget, true, true, false},
+        {"elunium", "submitbudget", &submitbudget, true, true, false},
+        {"elunium", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"elunium", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"elunium", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"elunium", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"elunium", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"elunium", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
+        {"elunium", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"elunium", "checkbudgets", &checkbudgets, true, true, false},
+        {"elunium", "mnsync", &mnsync, true, true, false},
+        {"elunium", "spork", &spork, true, true, false},
 #ifdef ENABLE_WALLET
 
         /* Wallet */
@@ -1070,7 +1070,7 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> epic-cli " + methodname + " " + args + "\n";
+    return "> elunium-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)

@@ -1,28 +1,28 @@
-Epic Core
+Elunium Core
 =====================
 
 Setup
 ---------------------
-[Epic Core](http://epic-coin.io/) is the original Epic client and it builds the backbone of the network. However, it downloads and stores the entire history of Epic transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[Elunium Core](http://elunium-coin.io/) is the original Elunium client and it builds the backbone of the network. However, it downloads and stores the entire history of Elunium transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
-The following are some helpful notes on how to run Epic on your native platform.
+The following are some helpful notes on how to run Elunium on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- bin/32/epic-qt (GUI, 32-bit) or bin/32/epicd (headless, 32-bit)
-- bin/64/epic-qt (GUI, 64-bit) or bin/64/epicd (headless, 64-bit)
+- bin/32/elunium-qt (GUI, 32-bit) or bin/32/eluniumd (headless, 32-bit)
+- bin/64/elunium-qt (GUI, 64-bit) or bin/64/eluniumd (headless, 64-bit)
 
 ### Windows
 
-Unpack the files into a directory, and then run epic-qt.exe.
+Unpack the files into a directory, and then run elunium-qt.exe.
 
 ### OSX
 
-Drag Epic-Qt to your applications folder, and then run Epic-Qt.
+Drag Elunium-Qt to your applications folder, and then run Elunium-Qt.
 
 ### Need Help?
 
@@ -30,7 +30,7 @@ Drag Epic-Qt to your applications folder, and then run Epic-Qt.
 
 Building
 ---------------------
-The following are developer notes on how to build Epic on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Elunium on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OSX Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -38,7 +38,7 @@ The following are developer notes on how to build Epic on your native platform. 
 
 Development
 ---------------------
-The Epic repo's [root README](https://github.com/epic/epic/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Elunium repo's [root README](https://github.com/elunium/elunium/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

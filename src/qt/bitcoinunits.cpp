@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The Epic developers
+// Copyright (c) 2018 The Elunium developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,18 +20,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(EPIC);
-    unitlist.append(mEPIC);
-    unitlist.append(uEPIC);
+    unitlist.append(ELUNIUM);
+    unitlist.append(mELUNIUM);
+    unitlist.append(uELUNIUM);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case EPIC:
-    case mEPIC:
-    case uEPIC:
+    case ELUNIUM:
+    case mELUNIUM:
+    case uELUNIUM:
         return true;
     default:
         return false;
@@ -41,11 +41,11 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case EPIC:
+    case ELUNIUM:
         return QString("bitg");
-    case mEPIC:
+    case mELUNIUM:
         return QString("mbitg");
-    case uEPIC:
+    case uELUNIUM:
         return QString::fromUtf8("ubitg");
     default:
         return QString("???");
@@ -56,23 +56,23 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case EPIC:
-            return QString("EPIC");
-        case mEPIC:
-            return QString("mEPIC");
-        case uEPIC:
-            return QString::fromUtf8("μEPIC");
+        case ELUNIUM:
+            return QString("ELUNIUM");
+        case mELUNIUM:
+            return QString("mELUNIUM");
+        case uELUNIUM:
+            return QString::fromUtf8("μELUNIUM");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case EPIC:
-            return QString("tEPIC");
-        case mEPIC:
-            return QString("mtEPIC");
-        case uEPIC:
-            return QString::fromUtf8("μtEPIC");
+        case ELUNIUM:
+            return QString("tELUNIUM");
+        case mELUNIUM:
+            return QString("mtELUNIUM");
+        case uELUNIUM:
+            return QString::fromUtf8("μtELUNIUM");
         default:
             return QString("???");
         }
@@ -83,23 +83,23 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case EPIC:
-            return QString("EPIC");
-        case mEPIC:
-            return QString("Milli-EPIC (1 / 1" THIN_SP_UTF8 "000)");
-        case uEPIC:
-            return QString("Micro-EPIC (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case ELUNIUM:
+            return QString("ELUNIUM");
+        case mELUNIUM:
+            return QString("Milli-ELUNIUM (1 / 1" THIN_SP_UTF8 "000)");
+        case uELUNIUM:
+            return QString("Micro-ELUNIUM (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case EPIC:
-            return QString("TestEPICs");
-        case mEPIC:
-            return QString("Milli-TestEPIC (1 / 1" THIN_SP_UTF8 "000)");
-        case uEPIC:
-            return QString("Micro-TestEPIC (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case ELUNIUM:
+            return QString("TestELUNIUMs");
+        case mELUNIUM:
+            return QString("Milli-TestELUNIUM (1 / 1" THIN_SP_UTF8 "000)");
+        case uELUNIUM:
+            return QString("Micro-TestELUNIUM (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -109,11 +109,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case EPIC:
+    case ELUNIUM:
         return 100000000;
-    case mEPIC:
+    case mELUNIUM:
         return 100000;
-    case uEPIC:
+    case uELUNIUM:
         return 100;
     default:
         return 100000000;
@@ -123,11 +123,11 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case EPIC:
+    case ELUNIUM:
         return 8;
-    case mEPIC:
+    case mELUNIUM:
         return 5;
-    case uEPIC:
+    case uELUNIUM:
         return 2;
     default:
         return 0;

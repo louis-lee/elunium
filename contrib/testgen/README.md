@@ -1,6 +1,6 @@
 ### TestGen ###
 
-Utilities to generate test vectors for the data-driven Epic tests.
+Utilities to generate test vectors for the data-driven Elunium tests.
 
 Usage: 
 

@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between epic-cli and epicd)
- * of a given instance of the Epic system.
+ * CBaseChainParams defines the base parameters (shared between elunium-cli and eluniumd)
+ * of a given instance of the Elunium system.
  */
 class CBaseChainParams
 {

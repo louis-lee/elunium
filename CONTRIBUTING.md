@@ -1,7 +1,7 @@
-Contributing to Epic Core
+Contributing to Elunium Core
 ==================================
 
-The Epic Core project operates an open contributor model where anyone is
+The Elunium Core project operates an open contributor model where anyone is
 welcome to contribute towards development in the form of peer review, testing
 and patches. This document explains the practical process and guidelines for
 contributing.
@@ -57,12 +57,12 @@ the pull request affects. Valid areas as:
 
   - *Consensus* for changes to consensus critical code
   - *Docs* for changes to the documentation
-  - *Qt* for changes to epic-qt
+  - *Qt* for changes to elunium-qt
   - *Minting* for changes to the minting code
   - *Net* or *P2P* for changes to the peer-to-peer network code
   - *RPC/REST* for changes to the RPC or REST APIs
   - *Scripts and tools* for changes to the scripts and tools
-  - *Tests* for changes to the epic unit tests or QA tests
+  - *Tests* for changes to the elunium unit tests or QA tests
   - *Trivial* should **only** be used for PRs that do not change generated
     executable code. Notably, refactors (change of function arguments and code
     reorganization) and changes in behavior should **not** be marked as trivial.
@@ -157,10 +157,10 @@ where possible keep them short, un-complex and easy to verify.
 "Decision Making" Process
 -------------------------
 
-The following applies to code changes to the Epic Core project, and is not to be
-confused with overall Epic Network Protocol consensus changes.
+The following applies to code changes to the Elunium Core project, and is not to be
+confused with overall Elunium Network Protocol consensus changes.
 
-Whether a pull request is merged into Epic Core rests with the project merge
+Whether a pull request is merged into Elunium Core rests with the project merge
 maintainers and ultimately the project lead.
 
 Maintainers will take into consideration if a patch is in line with the general
@@ -174,7 +174,7 @@ In general, all pull requests must:
   - be well peer reviewed;
   - follow code style guidelines;
 
-Patches that change Epic consensus rules are considerably more involved than
+Patches that change Elunium consensus rules are considerably more involved than
 normal because they affect the entire ecosystem and so must be preceded by
 extensive discussions and clear detailing. While each case will be different,
 one should be prepared to expend more time and effort than for other kinds of
@@ -214,7 +214,7 @@ higher in terms of discussion and peer review requirements, keeping in mind that
 mistakes could be very costly to the wider community. This includes refactoring
 of consensus critical code.
 
-Where a patch set proposes to change the Epic consensus, it must have been
+Where a patch set proposes to change the Elunium consensus, it must have been
 discussed extensively on the forums and Slack, be accompanied by a widely
 discussed Proposal and have a generally widely perceived technical consensus of being
 a worthwhile change based on the judgement of the maintainers.
@@ -254,7 +254,7 @@ about:
 Release Policy
 --------------
 
-The project leader is the release manager for each Epic Core release.
+The project leader is the release manager for each Elunium Core release.
 
 Copyright
 ---------

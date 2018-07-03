@@ -3,7 +3,7 @@ Release Process
 
 Before every release candidate:
 
-* Update translations see [translation_process.md](https://github.com/epic/epic/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations see [translation_process.md](https://github.com/elunium/elunium/blob/master/doc/translation_process.md#synchronising-translations).
 
 Before every minor and major release:
 
@@ -24,12 +24,12 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/epic/gitian.sigs.git
-    git clone https://github.com/epic/epic-detached-sigs.git
+    git clone https://github.com/elunium/gitian.sigs.git
+    git clone https://github.com/elunium/elunium-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/epic/epic.git
+    git clone https://github.com/elunium/elunium.git
 
-### Epic maintainers/release engineers, suggestion for writing release notes
+### Elunium maintainers/release engineers, suggestion for writing release notes
 
 Write release notes. git shortlog helps a lot, for example:
 
@@ -50,7 +50,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./epic
+    pushd ./elunium
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.8.0)
     git fetch
@@ -84,7 +84,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../epic/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../elunium/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -92,55 +92,55 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url epic=/path/to/epic,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url elunium=/path/to/elunium,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign Epic Core for Linux, Windows, and OS X:
+### Build and sign Elunium Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --memory 3000 --commit epic=v${VERSION} ../epic/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../epic/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/epic-*.tar.gz build/out/src/epic-*.tar.gz ../
+    ./bin/gbuild --memory 3000 --commit elunium=v${VERSION} ../elunium/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../elunium/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/elunium-*.tar.gz build/out/src/elunium-*.tar.gz ../
 
-    ./bin/gbuild --memory 3000 --commit epic=v${VERSION} ../epic/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../epic/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/epic-*-win-unsigned.tar.gz inputs/epic-win-unsigned.tar.gz
-    mv build/out/epic-*.zip build/out/epic-*.exe ../
+    ./bin/gbuild --memory 3000 --commit elunium=v${VERSION} ../elunium/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../elunium/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/elunium-*-win-unsigned.tar.gz inputs/elunium-win-unsigned.tar.gz
+    mv build/out/elunium-*.zip build/out/elunium-*.exe ../
 
-    ./bin/gbuild --memory 3000 --commit epic=v${VERSION} ../epic/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../epic/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/epic-*-osx-unsigned.tar.gz inputs/epic-osx-unsigned.tar.gz
-    mv build/out/epic-*.tar.gz build/out/epic-*.dmg ../
+    ./bin/gbuild --memory 3000 --commit elunium=v${VERSION} ../elunium/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../elunium/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/elunium-*-osx-unsigned.tar.gz inputs/elunium-osx-unsigned.tar.gz
+    mv build/out/elunium-*.tar.gz build/out/elunium-*.dmg ../
 
-    ./bin/gbuild --memory 3000 --commit epic=v${VERSION} ../epic/contrib/gitian-descriptors/gitian-aarch64.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../epic/contrib/gitian-descriptors/gitian-aarch64.yml
-    mv build/out/epic-*.tar.gz build/out/src/epic-*.tar.gz ../
+    ./bin/gbuild --memory 3000 --commit elunium=v${VERSION} ../elunium/contrib/gitian-descriptors/gitian-aarch64.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../elunium/contrib/gitian-descriptors/gitian-aarch64.yml
+    mv build/out/elunium-*.tar.gz build/out/src/elunium-*.tar.gz ../
     popd
 
 Build output expected:
 
-  1. source tarball (`epic-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`epic-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`epic-${VERSION}-win[32|64]-setup-unsigned.exe`, `epic-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`epic-${VERSION}-osx-unsigned.dmg`, `epic-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`elunium-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`elunium-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`elunium-${VERSION}-win[32|64]-setup-unsigned.exe`, `elunium-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`elunium-${VERSION}-osx-unsigned.dmg`, `elunium-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import epic/contrib/gitian-keys/*.pgp
+    gpg --import elunium/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../epic/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../epic/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../epic/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-aarch64 ../epic/contrib/gitian-descriptors/gitian-aarch64.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../elunium/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../elunium/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../elunium/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-aarch64 ../elunium/contrib/gitian-descriptors/gitian-aarch64.yml
     popd
 
 ### Next steps:
@@ -162,22 +162,22 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer epic-osx-unsigned.tar.gz to osx for signing
-    tar xf epic-osx-unsigned.tar.gz
+    transfer elunium-osx-unsigned.tar.gz to osx for signing
+    tar xf elunium-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf epic-win-unsigned.tar.gz
+    tar xf elunium-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/epic-detached-sigs
+    cd ~/elunium-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -190,25 +190,25 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [epic-detached-sigs](https://github.com/epic/epic-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [elunium-detached-sigs](https://github.com/elunium/elunium-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../epic/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../epic/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../epic/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/epic-osx-signed.dmg ../epic-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../elunium/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../elunium/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../elunium/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/elunium-osx-signed.dmg ../elunium-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../epic/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../epic/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../epic/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/epic-*win64-setup.exe ../epic-${VERSION}-win64-setup.exe
-    mv build/out/epic-*win32-setup.exe ../epic-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../elunium/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../elunium/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../elunium/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/elunium-*win64-setup.exe ../elunium-${VERSION}-win64-setup.exe
+    mv build/out/elunium-*win32-setup.exe ../elunium-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -230,17 +230,17 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-epic-${VERSION}-aarch64-linux-gnu.tar.gz
-epic-${VERSION}-arm-linux-gnueabihf.tar.gz
-epic-${VERSION}-i686-pc-linux-gnu.tar.gz
-epic-${VERSION}-x86_64-linux-gnu.tar.gz
-epic-${VERSION}-osx64.tar.gz
-epic-${VERSION}-osx.dmg
-epic-${VERSION}.tar.gz
-epic-${VERSION}-win32-setup.exe
-epic-${VERSION}-win32.zip
-epic-${VERSION}-win64-setup.exe
-epic-${VERSION}-win64.zip
+elunium-${VERSION}-aarch64-linux-gnu.tar.gz
+elunium-${VERSION}-arm-linux-gnueabihf.tar.gz
+elunium-${VERSION}-i686-pc-linux-gnu.tar.gz
+elunium-${VERSION}-x86_64-linux-gnu.tar.gz
+elunium-${VERSION}-osx64.tar.gz
+elunium-${VERSION}-osx.dmg
+elunium-${VERSION}.tar.gz
+elunium-${VERSION}-win32-setup.exe
+elunium-${VERSION}-win32.zip
+elunium-${VERSION}-win64-setup.exe
+elunium-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
@@ -262,10 +262,10 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
   - bitcointalk announcement thread
 
-  - Optionally twitter, reddit /r/Epic, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/Elunium, ... but this will usually sort out itself
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/epic/epic/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/elunium/elunium/releases/new) with a link to the archived release notes.
 
   - Celebrate

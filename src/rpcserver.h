@@ -96,7 +96,7 @@ public:
 };
 
 /**
- * Epic RPC command dispatcher.
+ * Elunium RPC command dispatcher.
  */
 class CRPCTable
 {

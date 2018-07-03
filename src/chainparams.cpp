@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The Epic developers
+// Copyright (c) 2018 The Elunium developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -114,10 +114,10 @@ public:
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 200;
-        nModifierUpdateBlock = 1; // we use the version 2 for EPIC
+        nModifierUpdateBlock = 1; // we use the version 2 for ELUNIUM
 
 
-        const char* pszTimestamp = "Epic Reborn 2018";
+        const char* pszTimestamp = "Elunium Reborn 2018";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -141,17 +141,17 @@ public:
         vSeeds.push_back(CDNSSeedData("seed2.hopto.org", "seed2.hopto.org"));
         vSeeds.push_back(CDNSSeedData("seed3.hopto.org", "seed3.hopto.org"));
 
-        // Epic addresses start with 'E'
+        // Elunium addresses start with 'E'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 33);
-        // Epic script addresses start with '3'
+        // Elunium script addresses start with '3'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 6);
-        // Epic private keys start with 'K'
+        // Elunium private keys start with 'K'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 46);
-        // Epic BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
+        // Elunium BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
-        // Epic BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
+        // Elunium BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
-        // Epic BIP44 coin type is '222' (0x800000de)
+        // Elunium BIP44 coin type is '222' (0x800000de)
         // BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0xde).convert_to_container<std::vector<unsigned char> >();
 
@@ -201,8 +201,8 @@ public:
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // Epic: 1 day
-        nTargetSpacing = 1 * 60;  // Epic: 1 minute
+        nTargetTimespan = 1 * 60; // Elunium: 1 day
+        nTargetSpacing = 1 * 60;  // Elunium: 1 minute
         nLastPOWBlock = 200;
         nMaturity = 15;
         nMasternodeCountDrift = 4;
@@ -219,15 +219,15 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        // Testnet Epic addresses start with 'e'
+        // Testnet Elunium addresses start with 'e'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 92);
-        // Testnet Epic script addresses start with '5' or '6'
+        // Testnet Elunium script addresses start with '5' or '6'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 12);
         // Testnet private keys start with 'k'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 108);
-        // Testnet Epic BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Testnet Elunium BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Testnet Epic BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Testnet Elunium BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
         // Testnet bitcoin green BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
@@ -275,8 +275,8 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 24 * 60 * 60; // Epic: 1 day
-        nTargetSpacing = 1 * 60;        // Epic: 1 minutes
+        nTargetTimespan = 24 * 60 * 60; // Elunium: 1 day
+        nTargetSpacing = 1 * 60;        // Elunium: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1525674507;
         genesis.nBits = 0x1e0ffff0;

@@ -18,7 +18,7 @@ For example:
   ./github-merge.py 3077
 
 (in any git repository) will help you merge pull request #3077 for the
-epic/epic repository.
+elunium/elunium repository.
 
 What it does:
 * Fetch master and the pull request.
@@ -36,16 +36,16 @@ couldn't mess with the sources.
 
 Setup
 ---------
-Configuring the github-merge tool for the Epic repository is done in the following way:
+Configuring the github-merge tool for the Elunium repository is done in the following way:
 
-    git config githubmerge.repository epic/epic
+    git config githubmerge.repository elunium/elunium
     git config githubmerge.testcmd "make -j4 check" (adapt to whatever you want to use for testing)
     git config --global user.signingkey mykeyid (if you want to GPG sign)
 
 optimize-pngs.py
 ================
 
-A script to optimize png files in the Epic
+A script to optimize png files in the Elunium
 repository (requires pngcrush).
 
 fix-copyright-headers.py
@@ -93,10 +93,10 @@ If only supported symbols are used the return value will be 0 and the output wil
 
 If there are 'unsupported' symbols, the return value will be 1 a list like this will be printed:
 
-    .../64/test_epic: symbol memcpy from unsupported version GLIBC_2.14
-    .../64/test_epic: symbol __fdelt_chk from unsupported version GLIBC_2.15
-    .../64/test_epic: symbol std::out_of_range::~out_of_range() from unsupported version GLIBCXX_3.4.15
-    .../64/test_epic: symbol _ZNSt8__detail15_List_nod from unsupported version GLIBCXX_3.4.15
+    .../64/test_elunium: symbol memcpy from unsupported version GLIBC_2.14
+    .../64/test_elunium: symbol __fdelt_chk from unsupported version GLIBC_2.15
+    .../64/test_elunium: symbol std::out_of_range::~out_of_range() from unsupported version GLIBCXX_3.4.15
+    .../64/test_elunium: symbol _ZNSt8__detail15_List_nod from unsupported version GLIBCXX_3.4.15
 
 update-translations.py
 ======================
