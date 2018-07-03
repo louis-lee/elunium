@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Epic Core integration/staging repository
 =================================================
 
@@ -16,3 +17,7 @@ More information at [epic-coin.io](http://epic-coin.io/)
 | Max Coin Supply (PoS Phase) | 50,000,000 EPIC |
 | Premine                     | 500,000 EPIC    |
 
+=======
+# elunium
+elunium
+>>>>>>> a2c238122626b550291d413a6070dc7dbf6f3eca
